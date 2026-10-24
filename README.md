@@ -177,10 +177,22 @@ cd frontend && npm run typecheck
 
 ## Deploying
 
-The repo includes a `Dockerfile` (multi-stage: Node build, then Python + gunicorn) and a `render.yaml` blueprint.
+### Vercel
 
-On **Render**: New → Blueprint → pick the repo. It builds the image and runs a health check against `/api/health`. Any
-Docker host (Railway, Fly.io, Cloud Run) works the same way: it listens on `$PORT`.
+`vercel.json` builds the React app as static files, and `api/index.py` runs Django as a Python function for `/api/*`.
+
+1. On Vercel, choose **Add New → Project** and import this repo. Keep the root directory as `./`; the build settings
+   come from `vercel.json`.
+2. Add the environment variable `DJANGO_SECRET_KEY` (any long random string).
+3. Deploy.
+
+Every serverless instance starts with an empty forecast cache, so repeated plans hit Open-Meteo more often than they do
+on a long-running server.
+
+### Docker (Render, Railway, Fly.io, Cloud Run)
+
+The `Dockerfile` builds the frontend and serves everything from Django with gunicorn on `$PORT`. On Render, choose
+New → Blueprint and pick the repo to use `render.yaml`.
 
 | Env var | Default | Purpose |
 | --- | --- | --- |
