@@ -4,9 +4,8 @@ A React + Django app that helps a truck driver pick the safest route. It weighs 
 will actually be on each stretch of road, the weight of the load, and the travel time.
 
 - **Live app:** https://weather-truck-routing-opal.vercel.app
-- **Walkthrough:** _add your Loom link_
-
-<!-- Add a screenshot: docs/screenshot.png -->
+- **Walkthrough video:** https://www.awesomescreenshot.com/video/57740269?key=c62051677995eedccf8389ac191fad78
+- **Repository:** https://github.com/CRYPTOcoderAS/weather-truck-routing
 
 ## What it does
 
